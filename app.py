@@ -11,7 +11,7 @@ async def get_user_object(name):
 	try:
 		user = await replit.get_user(name)
 		posts = await user.get_posts(order='new')
-		comments = await user.get_posts(order='new')
+		comments = await user.get_comments(order='new')
 	except Exception as e:
 		result = str(e)
 		user, posts, comments = None, None, None
