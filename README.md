@@ -1,4 +1,11 @@
-# Repl-Customs Is Finally Here! 🎉
+<div align="center">
+<h1><img src="https://repl-customs.irethekid.repl.co/static/images/repl_pixel.png" width="128" height="128"><br>Welcome to Repl Customs!</h1>
+</div>
+
+<div align="center">
+<img src="https://img.shields.io/website-up-down-green-red/http/shields.io.svg"> <img src="https://img.shields.io/badge/Maintained-yes-green.svg"> <img src="https://img.shields.io/github/issues-pr/IreTheKID/repl-customs.svg"> <img src="https://img.shields.io/github/issues/IreTheKID/repl-customs.svg"> <img src="https://img.shields.io/badge/License-MIT-blue.svg"> 
+</div>
+
 ---
 
 ### What is Repl-Customs? 🤔
