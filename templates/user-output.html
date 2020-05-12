@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>{% if title %}
+	<title>Repl Customs - {{ title }}</title>{% else %}
+	<title>Repl Customs</title>{% endif %}
+	<!--- [Google Analytics Object] --->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-164923842-1"></script>
+	<script>
+  		window.dataLayer = window.dataLayer || [];
+  		function gtag(){dataLayer.push(arguments);}
+  		gtag('js', new Date()); gtag('config', 'UA-164923842-1');
+	</script>
+	<!--- [Meta Data] --->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+	<meta name="description" content="Search a database of Repl.it users for information.">
+	<meta name="author" content="IreTheKID">
+	<!--- [External Assets] --->
+	<link rel="icon" href="//repl-customs.irethekid.repl.co/static/images/repl_pixel.png" type="png">
+	<link rel="stylesheet" href="//repl-customs.irethekid.repl.co/static/css/main.css" type="text/css">
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  	<link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+ 	<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+	<!--- [Google Fonts] --->
+	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Oswald">
+	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Raleway">
+	<link rel="stylesheet" href="//fonts.googleapis.com/css2?family=Open+Sans">
+	<!--- [JQuery] --->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+</head>
+
+<body>
+	<script> 
+		jQuery('body').css('display','none');
+		jQuery(document).ready(function() {
+			jQuery('body').fadeIn(2000);
+			jQuery('a').on('click',function(event){
+				var thetarget = this.getAttribute('target')
+				if (thetarget != "_blank"){
+					var thehref = this.getAttribute('href')
+					event.preventDefault();
+					jQuery('body').fadeOut(function(){
+						window.location = thehref});}});});
+		setTimeout(function(){jQuery('body').fadeIn();},2000)
+		jQuery(document).ready(function(){jQuery('.collapsible').collapsible();});
+	</script>
+	<div class="webpage-content-container" style="margin-bottom: 8%">
+		<div class="center-custom">
+			<div class="row">
+				<div class="col s12">
+					<h2 class="header center black-text"><b>{{ user.name }}</b></h2>
+					<div class="row">
+							<div class="col s4"><div class="section"></div></div>
+						<div class="col s2">
+							<img class="circle z-depth-5" width="128" height="128" src="{{ user.avatar }}" alt="">
+						</div>
+						<div class="col s2">
+							<p style="vertical-align: middle;">{{ user.bio }}</p>
+						</div>
+							<div class="col s4"><div class="section"></div></div>
+					</div><br>
+					{% if user.first_name %}<h4 class="header center col s12 light">{{user.first_name}} {{user.last_name}}</h2>
+					{% endif %}
+					<a class="waves-effect waves-light btn mt-5 border-radius-4" href="//repl.it{{user.url}}">Vist Profile</a>
+				</div>
+			</div>
+		</div>
+		<hr>
+		<div class="row col s4">
+			<div class="col s2"><div class="section"></div></div>
+			<div class="col s2">
+				<h6>CYCLES</h6>
+				<h5 class="m-0"><a href="#">{{user.cycles}}</a></h5>
+			</div>
+			<div class="col s2">
+				<h6>DATE JOINED</h6>
+				<h5 class="m-0"><a href="#">{{timestamp}}</a></h5>
+			</div>
+			<div class="col s2">
+				<h6>SUBSCRIPTION</h6>
+				<h5 class="m-0"><a href="#">{{sub}}</a></h5>
+			</div>
+			<div class="col s2">
+				<h6>FAVORITE LANGUAGE</h6>
+				<h5 class="m-0">
+					<img src="{{user.languages[0].icon}}" width="24" height="24"><a href="#">{{user.languages[0].display_name}}</a></h5>
+			</div>
+			<div class="col s2"><div class="section"></div></div>
+		</div>
+		<hr>
+		<div class="row">
+			<div class="col s6">
+				<h4 class="header center col s12 light">Recent Posts</h4>
+			</div>
+			<div class="col s6">
+				<h4 class="header center col s12 light">Recent Comments</h4>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col s6">
+				<ul class="collapsible popout">
+					{% for post in posts[:5] %}
+						<li>
+							<div class="collapsible-header">
+								<a href="{{post.url}}"><i class="material-icons">call_made</i></a>
+								<b>[⬆️&nbsp;{{post.votes}}]</b> {{post.title[:35]}}
+							</div>
+							<div class="collapsible-body"  style="background-color: white">
+								<div class="center-custom pd-high">
+									<span style="margin: 16px;">
+										{{post.content[:300]}}<b>...</b>
+									</span>
+								</div>
+							</div>
+						</li>
+					{% endfor %}
+				</ul>
+			</div>
+			<div class="col s6">
+				<ul class="collapsible popout">
+					{% for comment in comments[:5] %}
+						<li>
+							<div class="collapsible-header">
+								<a href="{{comment.url}}"><i class="material-icons">call_made</i></a>
+								<b>[⬆️&nbsp;{{comment.votes}}]</b> From: <b>{{comment.post}}</b>
+							</div>
+							<div class="collapsible-body" style="background-color: white">
+								<div class="center-custom pd-high">
+									<span style="margin: 16px; padding: 16px;">
+										{{comment.content[:300]}}<b>...</b>
+									</span>
+								</div>
+							</div>
+						</li>
+					{% endfor %}
+				</ul>
+			</div>
+		</div>
+	</div>
+  	<script src="//cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>

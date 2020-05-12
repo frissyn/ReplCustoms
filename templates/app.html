@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html class="basic" lang="en-us">
+
+<head>{% if title %}
+	<title>Repl Customs - {{ title }}</title>{% else %}
+	<title>Repl Customs</title>{% endif %}
+	<!--- [Google Analytics Object] --->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-164923842-1"></script>
+	<script>
+  		window.dataLayer = window.dataLayer || [];
+  		function gtag(){dataLayer.push(arguments);}
+  		gtag('js', new Date());
+  		gtag('config', 'UA-164923842-1');
+	</script>
+	<!--- [Meta Data] --->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+	<meta name="description" content="Search a database of Repl.it users for information.">
+	<meta name="author" content="IreTheKID">
+	<!--- [External Assets] --->
+	<link rel="icon" href="//repl-customs.irethekid.repl.co/static/images/repl_pixel.png" type="png">
+	<link rel="stylesheet" href="//repl-customs.irethekid.repl.co/static/css/main.css" type="text/css">
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  	<link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+ 	<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+	<!--- [Google Fonts] --->
+	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Oswald">
+	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Raleway">
+	<link rel="stylesheet" href="//fonts.googleapis.com/css2?family=Open+Sans">
+	<!--- [JQuery] --->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<!--- [Custom CSS] --->
+	<style>
+		.input-field input[type=search]:focus + label {
+			color: green;
+			backgorselects-color: #fffdd0;
+		}
+		.input-field input:focus [type=search] {
+			border-bottom: 2px solid green;
+			box-shadow: none;
+		}
+    </style>
+</head>
+
+<body>
+	<script> 
+		jQuery('body').css('display','none');
+		jQuery(document).ready(function() {
+			jQuery('body').fadeIn(2000);
+			jQuery('a').on('click',function(event){
+				var thetarget = this.getAttribute('target')
+				if (thetarget != "_blank"){
+					var thehref = this.getAttribute('href')
+					event.preventDefault();
+					jQuery('body').fadeOut(function(){
+						window.location = thehref});}});});
+		setTimeout(function(){jQuery('body').fadeIn();},2000)
+		jQuery(document).ready(function(){
+			jQuery('select').formSelect();});
+	</script>
+
+	<div class="webpage-content-container">
+		<div class="logo-top-container">
+			<img src="/static/images/repl_pixel.png" width="156" height="156">
+		</div>
+		<h2 class="header center green-text">Repl Customs</h1>
+		<h5 class="header center col s12 light">Search the database here.</h5>
+
+		<div class="section"></div>
+
+		<form method="POST" action="" >
+			{{ form.hidden_tag() }}
+			<div class="row" style="width: 80%; padding: 32px 48px 0px 48px;">
+				<div class="input-field col s12">
+					{{ form.searchType }}
+					{{ form.searchType.label }}
+				</div>	
+				<script>
+					var selects = document.getElementById('searchType').children;
+					selects[0].setAttribute("disabled", "true");
+					selects[2].setAttribute("disabled", "true");
+					selects[3].setAttribute("disabled", "true");
+				</script>
+				<div class='row'>
+					<div class='input-field col s12'>
+						{{ form.searchData.label }}
+						{{ form.searchData }}
+					</div>
+				</div>
+				<div class='row'>
+					{{ form.submit(class="col s12 btn btn-large waves-effect green") }}
+				</div>
+			</div>
+		</form>
+	</div>
+
+	<script src="static/js/script.js"></script>
+  	<script src="//cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html class="basic" lang="en-us">
+
+<head>{% if title %}
+	<title>Repl Customs - {{ title }}</title>{% else %}
+	<title>Repl Customs</title>{% endif %}
+	<!--- [Google Analytics Object] --->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-164923842-1"></script>
+	<script>
+  		window.dataLayer = window.dataLayer || [];
+  		function gtag(){dataLayer.push(arguments);}
+  		gtag('js', new Date());
+  		gtag('config', 'UA-164923842-1');
+	</script>
+	<!--- [Meta Data] --->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+	<meta name="description" content="Search a database of Repl.it users for information.">
+	<meta name="author" content="IreTheKID">
+	<meta http-equiv="refresh" content="180">
+	<!--- [External Assets] --->
+	<link rel="icon" href="static/images/repl_pixel.png" type="png">
+	<link rel="stylesheet" href="static/css/main.css" type="text/css">
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<!--- [Google Fonts] --->
+	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Oswald">
+	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Raleway">
+	<link rel="stylesheet" href="//fonts.googleapis.com/css2?family=Open+Sans">
+	<!--- [JQuery] --->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+</head>
+
+<body>
+	<script> 
+		jQuery('body').css('display','none');
+		jQuery(document).ready(function() {
+			jQuery('body').fadeIn(2000);
+			jQuery('a').on('click',function(event){
+				var thetarget = this.getAttribute('target')
+				if (thetarget != "_blank"){
+					var thehref = this.getAttribute('href')
+					event.preventDefault();
+					jQuery('body').fadeOut(function(){
+						window.location = thehref});}});});
+		setTimeout(function(){jQuery('body').fadeIn();},2000)
+	</script>
+	<script src="static/js/script.js"></script>
+
+	<div class="webpage-content-container">
+		<img class="webpage-logo-header" src="static/images/repl_pixel.png"/>
+		<h1 class="content-title">Repl Customs</h1><br>
+		<h3 class="content-subtitle">Liscence and Non-Affiliate Disclaimer</h3><hr>
+		
+		<div class="content-text-container">
+			<p class="content-text">
+				I am not affiliated, associated, authorized, endorsed by, or in any way
+				officially connected to Repl.it, or any of its subsidiaries or its
+				affiliates.
+				<br><br>
+				All product and company names are trademarks™ or registered® trademarks
+				of their respective holders. Use of them does not imply any affiliation 
+				with or endorsement by them.
+			</p><br><br>
+		</div>
+
+		<h2 class="content-subtitle">MIT Lisence</h2><hr>
+		<div class="content-text-container">
+			<p class="content-text">
+				Copyright &lt;2020&gt; &lt;IreTheKID&gt;<br><br>
+				
+				Permission is hereby granted, free of charge, to any person obtaining 
+				a copy of this software and associated documentation files (the 
+				"Software"), to deal in the Software without restriction, including 
+				without limitation the rights to use, copy, modify, merge, publish, 
+				distribute, sublicense, and/or sell copies of the Software, and to 
+				permit persons to whom the Software is furnished to do so, subject to 
+				the following conditions:<br><br>
+				
+				The above copyright notice and this permission notice shall be included
+				in all copies or substantial portions of the Software.<br><br>
+				
+				THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+				 OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+				FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL 
+				THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER 
+				LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+				OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN 
+				THE SOFTWARE.<br>
+			</p>
+		</div>
+	</div>
+</body>
+
+</html>
