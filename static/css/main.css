@@ -32,9 +32,14 @@ html {
 	margin-right: auto;
 }
 
-pd-high {
+.pd-high {
 	padding-top: 16px;
 	padding-bottom: 16px;
 	padding-right: 16px;
 	padding-left: 16px;
+}
+
+.results-button {
+	height: 100%;
+	padding: 0;
 }
