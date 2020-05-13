@@ -9,7 +9,7 @@ If you want to open an issue for a bug/problem please make sure to include a cod
 
 ### Opening A Pull Request 
 
-*details will be coming soon!*
+When opening a pull request please make sure your changes only affect one file at one time. If you need to change multiple files, then please open multiple pull requests and make it clear in your descriptions that they are are corresponding pull requests. Just like with opening an issue, please be as clear as possible when describing the reason you have opened a pull request.
 
 ### Modifying the Code
 
