@@ -18,6 +18,10 @@ Repl Customs is still in early development and the only real feature is looking 
 ### Want to Contribute? 📝
 If this project piques your interest and you would like to contribute to this project as Repl user @adityaru first offered, anyone who wants to can read the guide (*[here](https://github.com/IreTheKID/Repl-Customs/blob/master/ContributionGuide.md)*) and then open a pull request with your desired changes/updates! (*Right now there’s an issue with printing a comment’s post title to the web app, so if you have a fix for that please feel free to help out!*😀)
 
+#### Top Contributors 👏👏
++ [Commander07](https://github.com/Commander07)
++ [AmazingMech2418](https://github.com/amazinigmech2418)
+
 ###### With all that said, please enjoy the first official release of Repl-Customs! 😎😎 🎉🎉
 
 > IreTheKID
