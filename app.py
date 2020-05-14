@@ -75,7 +75,7 @@ def application():
 				return render_template('user-output.html', title='Results',
 										user=user, posts=posts, comments=comments,
 										sub=sub, timestamp=timestamp)
-			except Exception:
+			except:
 				ex_type, ex, tb = sys.exc_info()
 				return f"""
 					<b>REPL CUSTOMS - ERROR MESSAGE</b><br><br>
