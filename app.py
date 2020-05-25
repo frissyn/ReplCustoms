@@ -2,46 +2,47 @@ import os
 import sys
 import asyncio
 import repltalk
-from forms import SearchDatabase
+from datetime import datetime
+from forms import SearchReplit
+from rctools import log_error, get_ordinal
 from flask import Flask, render_template, request
 
-def log_error(a, b, c, d):
-	errTemplate = """
-Error Occured - {0}
-
-Type: {1}
-Exception: {2}
-Traceback:
-{3}
-"""
-	with open('Repl-Customs/logs/err_log.txt', 'w') as fh:
-		res = errTemplate.format(a, b, c, d)
-		fh.write(res)
+now = datetime.now()
+cur_time = now.strftime("%H:%M:%S")
 
 async def get_user_object(name):
 	global user, posts, result, comments
 	replit = repltalk.Client()
-
 	try:
 		user = await replit.get_user(name)
 	except Exception as e:
 		user = None
 		ex_type, ex, tb = sys.exc_info()
-		log_error(e, ex_type, ex, tb)
-
+		log_error(e, ex_type, ex, tb, cur_time)
 	try:
 		posts = await user.get_posts(limit=5, order='new')
 	except Exception as e:
 		posts = None
 		ex_type, ex, tb = sys.exc_info()
-		log_error(e, ex_type, ex, tb)
-
+		log_error(e, ex_type, ex, tb, cur_time)
 	try:
 		comments = await user.get_comments(limit=5, order='new')
 	except Exception as e:
 		comments = None
 		ex_type, ex, tb = sys.exc_info()
-		log_error(e, ex_type, ex, tb)
+		log_error(e, ex_type, ex, tb, cur_time)
+
+async def get_post_by_query(query):
+	global posts_res
+	posts_res = []
+	replit = repltalk.Client()
+	async for post in replit.boards.all.get_posts(sort='top', search=str(query)):
+		posts_res.append(post)
+
+async def get_talk_leaderboard(lim=50):
+	global lboard
+	replit = repltalk.Client()
+	lboard = await replit.get_leaderboard(limit=lim)
 
 KEY = os.getenv('APP_KEY')
 
@@ -53,39 +54,65 @@ app.config['SECRET_KEY'] = KEY
 def index():
     return render_template('index.html', title='Home')
 
+@app.errorhandler(404) # Added and under construction by [@adityaru]
+def error(e):
+    """Handle errors. [@adityaru]"""
+    return render_template('404.html', title='404 Error'), 404
+
 @app.route('/license')
 def license():
-    return render_template('license.html', title='License')
+    return render_template('license.html', title='License & Legal Info')
+
+@app.route('/apps') # Working app page. Contains all app functions for Repl-Customs. [@IreTheKID]
+def apps():
+	return render_template('apps.html', title='Apps')
+
+@app.route('/lboard')
+@app.route('/leaderboard')
+def leaderboard():
+	asyncio.run(get_talk_leaderboard(40))
+	return render_template('app.html', output='LEADER',title='Leaderboard', 
+							leaderboard=lboard, enumerate=enumerate,
+							get_ordinal=get_ordinal)
 
 @app.route('/app', methods=['GET', 'POST'])
 def application():
-	form = SearchDatabase(request.form)
-	if request.method == 'POST':
-		query = request.form['searchData']
-		key = request.form.get('searchType')
-		if key == '2':
-			str(query).replace('@', '', 1)
-			asyncio.run(get_user_object(str(query)))
+	form = SearchReplit()
+	sType = request.args.get('searchType')
+	sData = request.args.get('searchData')
+	if sType and sData:
+		if sType == '3':
+			global posts_res
+			try:
+				asyncio.run(get_post_by_query(str(sData)))
+				return render_template('app.html', output='POST', title='Results', 
+										posts=posts_res, sData=sData, str=str)
+			except IndexError:
+				posts_res = None
+				return render_template('app.html', output='POST', title='Results', 
+										posts=posts_res, sData=sData, str=str)
+		elif sType == '2':
+			asyncio.run(get_user_object(str(sData.replace('@', '', 1))))
 			try:
 				s = user.subscription
 				timestamp = str(user.timestamp).split(' ')[0]
 				if str(s) == 'None': sub = 'Starter'
 				elif str(s) == 'hacker': sub = 'Hacker'
 				else: sub = 'Not Found'
-				return render_template('user-output.html', title='Results',
-										user=user, posts=posts, comments=comments,
-										sub=sub, timestamp=timestamp)
-			except:
+			except AttributeError:
+				return render_template('error.html', title='Error Occured', 
+										error="UserNotFound", context='From search page.',
+										sData=sData)
+			except Exception as e:
 				ex_type, ex, tb = sys.exc_info()
-				return f"""
-					<b>REPL CUSTOMS - ERROR MESSAGE</b><br><br>
-					Either the user was not found, or another error has occured.
-					<br><br><br>
-					Error Stack: <br>
-					<b>{str(ex_type).replace('<', '').replace('>', '')}</b><br>
-					{str(tb)}<br>
-					{str(ex).replace('<', '').replace('>', '')}"""
-	return render_template('app.html', title='Search', form=form)
+				log_error(e, ex_type, ex, tb, cur_time)
+				return None
+
+			return render_template('app.html', output='USER', title='Results',
+									user=user, posts=posts, comments=comments,
+									sub=sub, timestamp=timestamp)
+
+	return render_template('app.html', output='FORM', title='Search', form=form)
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')

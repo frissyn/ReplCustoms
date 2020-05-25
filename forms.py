@@ -3,13 +3,12 @@ from wtforms import StringField, PasswordField, SubmitField, BooleanField, Selec
 from wtforms.fields.html5 import SearchField
 from wtforms.validators import DataRequired, Length, Email, EqualTo
 
-class SearchDatabase(FlaskForm):
+class SearchReplit(FlaskForm):
 	searchType = SelectField('What are you looking for?',
 							choices=[
-								(1, ''),
+								(1, ' '),
 								(2, 'Users'),
-								(3, 'Posts (Coming Soon!)'),
-								(4, 'Comments (Coming Soon!)')
+								(3, 'Posts')
 							],
 							validators=[DataRequired()])
 	searchData = SearchField('Search Here', validators=[DataRequired()])
