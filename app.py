@@ -7,30 +7,53 @@ from forms import SearchReplit
 from rctools import log_error, get_ordinal
 from flask import Flask, render_template, request
 
+
+cache = {}
+
 now = datetime.now()
 cur_time = now.strftime("%H:%M:%S")
 
+cache_time = 120
+
+def remove_key(name,e):
+  global cache
+  time.sleep(cache_time)
+  try:
+    del cache[name]
+  except:
+    return
 async def get_user_object(name):
-	global user, posts, result, comments
+	global user, posts, result, comments, cache
 	replit = repltalk.Client()
-	try:
-		user = await replit.get_user(name)
-	except Exception as e:
-		user = None
-		ex_type, ex, tb = sys.exc_info()
-		log_error(e, ex_type, ex, tb, cur_time)
-	try:
-		posts = await user.get_posts(limit=5, order='new')
-	except Exception as e:
-		posts = None
-		ex_type, ex, tb = sys.exc_info()
-		log_error(e, ex_type, ex, tb, cur_time)
-	try:
-		comments = await user.get_comments(limit=5, order='new')
-	except Exception as e:
-		comments = None
-		ex_type, ex, tb = sys.exc_info()
-		log_error(e, ex_type, ex, tb, cur_time)
+	if(name in cache.keys()):
+	  cached =  cache.get(name)
+	  print('used cache')
+	  user = cached.get('user')
+	  posts = cached.get('posts')
+	  comments = cached.get('comments')
+	else:
+	  try:
+		  user = await replit.get_user(name)
+		  print('requested info')
+	  except Exception as e:
+		  user = None
+		  ex_type, ex, tb = sys.exc_info()
+		  log_error(e, ex_type, ex, tb, cur_time)
+	  try:
+	    posts = await user.get_posts(limit=5, order='new')
+	  except Exception as e:
+	  	posts = None
+	  	ex_type, ex, tb = sys.exc_info()
+	  	log_error(e, ex_type, ex, tb, cur_time)
+	  try:
+	  	comments = await user.get_comments(limit=5, order='new')
+	  except Exception as e:
+	    comments = None
+	    ex_type, ex, tb = sys.exc_info()
+	    log_error(e, ex_type, ex, tb, cur_time)
+	  temp = {'user':user,'posts':posts,'comments':comments}
+	  cache[name]=temp
+	  threading.Thread(None,remove_key,args=(name,0)).start()
 
 async def get_post_by_query(query):
 	global posts_res
