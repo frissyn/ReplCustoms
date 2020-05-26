@@ -22,6 +22,7 @@ If this project piques your interest and you would like to contribute to this pr
 + [Commander07](https://github.com/commander07)
 + [AmazingMech2418](https://github.com/amazinigmech2418)
 + [c00lhawk607](https://github.com/c00lhawk607)
++ [FunnyLamma](https://github.com/FunnyLamma)
 
 ###### With all that said, please enjoy the first official release of Repl-Customs! 😎😎 🎉🎉
 
