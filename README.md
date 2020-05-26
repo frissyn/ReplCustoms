@@ -3,7 +3,8 @@
 </div>
 
 <div align="center">
-<img src="https://img.shields.io/website-up-down-green-red/http/shields.io.svg"> <img src="https://img.shields.io/badge/Maintained-yes-green.svg"> <img src="https://img.shields.io/github/issues-pr/IreTheKID/repl-customs.svg"> <img src="https://img.shields.io/github/issues/IreTheKID/repl-customs.svg"> <img src="https://img.shields.io/badge/License-MIT-blue.svg"> 
+<img src="https://img.shields.io/website-up-down-green-red/http/shields.io.svg"> <img src="https://img.shields.io/badge/Maintained-yes-green.svg"> <img src="https://img.shields.io/github/issues-pr/IreTheKID/repl-customs.svg"> <img src="https://img.shields.io/github/issues/IreTheKID/repl-customs.svg"> <img src="https://img.shields.io/github/contributors/IreTheKID/repl-customs.svg"> <img src="https://img.shields.io/github/v/release/IreTheKID/repl-customs.svg"> <img src="https://img.shields.io/badge/License-MIT-blue.svg"> 
+
 </div>
 
 ---
