@@ -4,14 +4,6 @@
 <head>{% if title %}
 	<title>Repl Customs - {{ title }}</title>{% else %}
 	<title>Repl Customs</title>{% endif %}
-	<!--- [Google Analytics Object] --->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-164923842-1"></script>
-	<script>
-  		window.dataLayer = window.dataLayer || [];
-  		function gtag(){dataLayer.push(arguments);}
-  		gtag('js', new Date());
-  		gtag('config', 'UA-164923842-1');
-	</script>
 	<!--- [Meta Data] --->
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -54,7 +46,7 @@
 		<div class="section"></div>
 		<div class="center-custom">
 			<div class="col s12">
-				<a class="waves-effect waves-light btn-large green" href="/app">
+				<a class="waves-effect waves-light btn-large green" href="{{url_for('apps')}}">
 					<i class="material-icons left">search</i>Get Started!
 				</a>
 			</div>
@@ -94,18 +86,18 @@
 				<div class="col l5 s12">
 					<h5 class="white-text"><b>A Community Flask Project</b></h5>
 					<p class="grey-text text-lighten-4">
-						This Flask web-app was created and designed by IreTheKID, styled using the Google
-						Materialize Design Language. I am not affiliated, associated, authorized, endorsed by,
-						or in any way officially connected to Repl.it, or any of its subsidiaries or its
-						affiliates.
+						This Flask web-app was created and designed by IreTheKID and other Repl.it Community members,
+						styled using the Google Materialize Design Language. I am not affiliated, associated, 
+						authorized, endorsed by, or in any way officially connected to Repl.it, or any of its 
+						subsidiaries or its affiliates.
 					</p>
 				</div>
 				<div class="col l3 s12"></div>
 				<div class="col l2 s12">
 					<h5 class="white-text"><b>More</b></h5>
 					<ul>
-						<li><a class="white-text" href="//github.com/IreTheKID/Repl-Customs">Github Repo</a></li>
-						<li><a class="white-text" href="#">License</a></li>
+						<li><a class="white-text" href="//github.com/IreTheKID/Repl-Customs">Repository</a></li>
+						<li><a class="white-text" href="/license">License</a></li>
 					</ul>
 				</div>
 				<div class="col l2 s12">

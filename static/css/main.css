@@ -9,6 +9,13 @@ html {
 	-webkit-text-size-adjust: 100%
 }
 
+*:focus {
+	outline-color: lightblue;
+	outline-style: solid;
+	outline-width: 1px;
+	
+}
+
 .webpage-content-container {
 	margin-left: 11%;
 	margin-right: 11%;
@@ -33,13 +40,20 @@ html {
 }
 
 .pd-high {
-	padding-top: 16px;
-	padding-bottom: 16px;
-	padding-right: 16px;
-	padding-left: 16px;
+	padding-top: 5%;
+	padding-bottom: 5%;
+	padding-right: 15%;
+	padding-left: 15%;
 }
 
 .results-button {
 	height: 100%;
 	padding: 0;
+}
+
+.fill-all {
+	height: 100%;
+	width: 100%;
+	padding: 0;
+	margin: 0;
 }
