@@ -1,5 +1,5 @@
 <div align="center">
-<h1><img src="https://repl-customs-working.irethekid.repl.co/static/images/repl_pixel.png" width="128" height="128"><br>Welcome to Repl Customs!</h1>
+<h1><img src="https://repl-customs--irethekid.repl.co/static/images/repl_pixel.png" width="128" height="128"><br>Welcome to Repl Customs!</h1>
 </div>
 
 <div align="center">
