@@ -1,9 +1,11 @@
 import os
 import sys
+import time
 import asyncio
 import repltalk
 from datetime import datetime
 from forms import SearchReplit
+from gevent.pywsgi import WSGIServer
 from rctools import log_error, get_ordinal
 from flask import Flask, render_template, request
 
@@ -138,4 +140,5 @@ def application():
 	return render_template('app.html', output='FORM', title='Search', form=form)
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0')
+   http_server = WSGIServer(('0.0.0.0', int(5000)), app)
+   http_server.serve_forever()
