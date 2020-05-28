@@ -11,7 +11,7 @@
 
 ### What is Repl-Customs? 🤔
 
-Repl Customs is a data solution I created to allow users to search the Replatabase for custom data solutions. ~~That doesn't answer anything but OK~~ You can find out answers to questions like, "*How many upvotes does my post get in an hour?*" or "*Who commented the most in the past week?*" Things like this are easy to look at with Repl Customs!
+Repl Customs is a data solution I created to allow users to search the Repldatabase for custom data solutions. ~~That doesn't answer anything but OK~~ You can find out answers to questions like, "*How many upvotes does my post get in an hour?*" or "*Who commented the most in the past week?*" Things like this are easy to look at with Repl Customs!
 
 ### The Current State of Things. 📈
 Repl Customs is still in early development and the only features are looking up Repl users and getting a glorified profile page, looking up posts, and looking at the Repl leaderboard for cycles, but that is just the beginning! I want this to be a fully-fledged web app that is worth your time to visit. So look forward to constant updates and changes! I’ll be working on this for next few months.
