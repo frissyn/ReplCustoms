@@ -12,7 +12,7 @@ If you want to open an issue for a bug/problem please make sure to include a cod
 
 ### Opening A Pull Request 
 
-When opening a pull request please make sure your changes only affect one file at one time. If you need to change multiple files, then please open multiple pull requests and make it clear in your descriptions that they are are corresponding pull requests. Just like with opening an issue, please be as clear as possible when describing the reason you have opened a pull request. Only change multiple files in one pull request if the same shange is being made to each of the files, such as adding a back button to a few of the template files.
+When opening a pull request please make sure your changes only affect one file at one time. If you need to change multiple files and the changes are unrelated, then please open multiple pull requests. Just like with opening an issue, please be as clear as possible when describing the reason you have opened a pull request. Only change multiple files in one pull request if the same shange is being made to each of the files, such as adding a back button to a few of the template files.
 
 ### Describing Your Pull Request
 In the RC repository, we like to use emojis to describe and classify our changes; here's a list for you to check before you get started.
