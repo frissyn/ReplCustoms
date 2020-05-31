@@ -25,6 +25,8 @@ If this project piques your interest and you would like to contribute to this pr
 + [AmazingMech2418](https://github.com/amazinigmech2418)
 + [c00lhawk607](https://github.com/c00lhawk607)
 + [FunnyLamma](https://github.com/FunnyLamma)
++ [DynamicSquid](https://github.com/DynamicSquid)
+
 
 ###### With all that said, please enjoy the V2 release of Repl-Customs! 😎😎 🎉🎉
 
