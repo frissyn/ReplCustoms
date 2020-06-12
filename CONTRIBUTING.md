@@ -1,4 +1,4 @@
-# 🖊 How to contribute to Repl Customs <img src="https://img.shields.io/github/issues-pr/IreTheKID/repl-customs.svg"> <img src="https://img.shields.io/github/issues/IreTheKID/repl-customs.svg">
+# 🖊   How to contribute to Repl Customs <img src="https://img.shields.io/github/issues-pr/IreTheKID/repl-customs.svg"> <img src="https://img.shields.io/github/issues/IreTheKID/repl-customs.svg">
 
  
 First of all, if you're new here, thanks for your consideration to contribute to Repl Customs! 😀 This guide will help you get started and walk you the process of making improvements or changes to the Repl Customs web application.
@@ -17,12 +17,12 @@ When opening a pull request please make sure your changes only affect one file a
 ### Describing Your Pull Request
 In the RC repository, we like to use emojis to describe and classify our changes; here's a list for you to check before you get started.
 
-+ 🔥 The Fire emoji is for changes that mark a file ready for a *new release*.
-+ ✏️ The Pencil emoji is for minor *changes* to a file such as *spelling errors* or *syntax changes*.
-+ 🖋️ The Pen emoji is for major *additions* to a file such as a new feature.
-+ ❗ The Exclamation emoji is for *changes* to information such as *new info* in the Markdown files.
-+ ➕ The Plus emoji is for the *addition* of a file that didn't exist before.
-+ ⭐ The Star emoji is for the *addition* of a feature that didn't exist before.
++ 🔥   The Fire emoji is for changes that mark a file ready for a *new release*.
++ ✏️   The Pencil emoji is for minor *changes* to a file such as *spelling errors* or *syntax changes*.
++ 🖋️   The Pen emoji is for major *additions* to a file such as a new feature.
++ ❗    The Exclamation emoji is for *changes* to information such as *new info* in the Markdown files.
++ ➕  The Plus emoji is for the *addition* of a file that didn't exist before.
++ ⭐   The Star emoji is for the *addition* of a feature that didn't exist before.
 
 ### Modifying the Code
 
