@@ -1,9 +1,9 @@
 ## Whats Upcoming?
--Veiwing Repltalk stats!
+1. **Veiwing Repltalk statistics!**
 
--Improved Leaderboard!
+2. **Detailed Leaderboard!**
 
--Being able to acess the bot (IreTheBOT)!
+3. **Access to IreTheBOT (ReplTalk Bot)**
 
-If you have any suggestions for upcoming updates, feel free to share them. And if you can, create a pull request for the suggestion. -
-IreTheKID
+If you have any suggestions for upcoming updates, feel free to share them. 
+And if you wish, open an issue for the suggestion.
