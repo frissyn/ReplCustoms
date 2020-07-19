@@ -39,7 +39,7 @@ async def get_user_object(name):
 		  	user = await replit.get_user(name)
 		  	print('requested info')
 	  	except Exception as e:
-		  	user = None
+			user = None
 		  	ex_type, ex, tb = sys.exc_info()
 		  	log_error(
 				e, ex_type, 
