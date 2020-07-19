@@ -8,6 +8,9 @@
 </div>
 
 ---
+#### [Live Build](https://repl-customs.irethekid.repl.co/): *The live and stable version, all content here is officialy tested before release*
+#### [Experimental Build](https://rc.irethekid.repl.co): *The experimental version, updates and features are tested here, don't mind the bugs*
+
 
 ### What is Repl-Customs? 🤔
 
