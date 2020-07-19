@@ -19,44 +19,61 @@ cur_time = now.strftime("%H:%M:%S")
 cache_time = 120
 
 def remove_key(name,e):
-  global cache
-  time.sleep(cache_time)
-  try:
-    del cache[name]
-  except:
-    return
+	global cache
+  	time.sleep(cache_time)
+  	try:
+    		del cache[name]
+  	except:
+    		return
 async def get_user_object(name):
 	global user, posts, result, comments, cache
 	replit = repltalk.Client()
 	if(name in cache.keys()):
-	  cached =  cache.get(name)
-	  print('used cache')
-	  user = cached.get('user')
-	  posts = cached.get('posts')
-	  comments = cached.get('comments')
+	  	cached =  cache.get(name)
+	  	print('used cache')
+	  	user = cached.get('user')
+	  	posts = cached.get('posts')
+	  	comments = cached.get('comments')
 	else:
+	  	try:
+		  	user = await replit.get_user(name)
+		  	print('requested info')
+	  	except Exception as e:
+			user = None
+		  	ex_type, ex, tb = sys.exc_info()
+		  	log_error(
+				e, ex_type, 
+				ex, tb, 
+				cur_time)
 	  try:
-		  user = await replit.get_user(name)
-		  print('requested info')
-	  except Exception as e:
-		  user = None
-		  ex_type, ex, tb = sys.exc_info()
-		  log_error(e, ex_type, ex, tb, cur_time)
-	  try:
-	    posts = await user.get_posts(limit=5, order='new')
+	    	posts = await user.get_posts(
+			limit=5, order='new')
 	  except Exception as e:
 	  	posts = None
 	  	ex_type, ex, tb = sys.exc_info()
-	  	log_error(e, ex_type, ex, tb, cur_time)
+	  	log_error(
+			e, ex_type, 
+			ex, tb, 
+			cur_time)
 	  try:
-	  	comments = await user.get_comments(limit=5, order='new')
+	  	comments = await user.get_comments(
+			limit=5, order='new')
 	  except Exception as e:
-	    comments = None
-	    ex_type, ex, tb = sys.exc_info()
-	    log_error(e, ex_type, ex, tb, cur_time)
-	  temp = {'user':user,'posts':posts,'comments':comments}
+	    	comments = None
+	    	ex_type, ex, tb = sys.exc_info()
+	    	log_error(e, ex_type, 
+			  ex, tb,
+			  cur_time)
+	  temp = {
+		  'user': user,
+		  'posts': posts,
+		  'comments': comments
+	  }
 	  cache[name]=temp
-	  threading.Thread(None,remove_key,args=(name,0)).start()
+	  threading.Thread(
+		  None, remove_key,
+		  args=(name,0)
+	  ).start()
 
 async def get_post_by_query(query):
 	global posts_res
@@ -78,20 +95,25 @@ app.config['SECRET_KEY'] = KEY
 @app.route('/')
 @app.route('/home')
 def index():
-    return render_template('index.html', title='Home')
+    	return render_template(
+	    'index.html', title='Home')
 
 @app.errorhandler(404) # Added and under construction by [@adityaru]
 def error(e):
     """Handle errors. [@adityaru]"""
-    return render_template('404.html', title='404 Error'), 404
+    
+	return render_template(
+	    '404.html', title='404 Error'), 404
 
 @app.route('/license')
 def license():
-    return render_template('license.html', title='License & Legal Info')
+    	return render_template(
+	    'license.html', title='License & Legal Info')
 
 @app.route('/apps') # Working app page. Contains all app functions for Repl-Customs. [@IreTheKID]
 def apps():
-	return render_template('apps.html', title='Apps')
+	return render_template(
+		'apps.html', title='Apps')
 
 @app.route('/lboard')
 @app.route('/leaderboard')
@@ -110,7 +132,9 @@ def application():
 		if sType == '3':
 			global posts_res
 			try:
-				asyncio.run(get_post_by_query(str(sData)))
+				asyncio.run(
+					get_post_by_query(str(sData))
+				)
 				return render_template('app.html', output='POST', title='Results', 
 										posts=posts_res, sData=sData, str=str)
 			except IndexError:
@@ -118,7 +142,11 @@ def application():
 				return render_template('app.html', output='POST', title='Results', 
 										posts=posts_res, sData=sData, str=str)
 		elif sType == '2':
-			asyncio.run(get_user_object(str(sData.replace('@', '', 1))))
+			asyncio.run(
+				get_user_object(
+					str(sData.replace('@', '', 1))
+				)
+			)
 			try:
 				s = user.subscription
 				timestamp = str(user.timestamp).split(' ')[0]
@@ -131,7 +159,10 @@ def application():
 										sData=sData)
 			except Exception as e:
 				ex_type, ex, tb = sys.exc_info()
-				log_error(e, ex_type, ex, tb, cur_time)
+				log_error(
+					e, ex_type, 
+					ex, tb, 
+					cur_time)
 				return None
 
 			return render_template('app.html', output='USER', title='Results',
