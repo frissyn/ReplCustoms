@@ -25,6 +25,7 @@ If this project piques your interest and you would like to contribute to this pr
 #### The Team
 + [IreTheKID](https://github.com/IreTheKID)
 + [Codemonkey51](https://github.com/Codemonkey51)
++ [AR_JPEG](https://github.com/AR-jpeg)
 
 #### Top Contributors 👏👏
 + [Commander07](https://github.com/commander07)
