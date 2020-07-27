@@ -1,11 +1,13 @@
 ## Whats Upcoming?
 1. **Chart.js functionality** 
 
-2. **Veiwing Repltalk statistics!**
+2. **New Themes** 
 
-3. **Detailed Leaderboard!**
+3. **Veiwing Repltalk statistics!**
 
-4. **Access to IreTheBOT (ReplTalk Bot)**
+4. **Detailed Leaderboard!**
+
+5. **Access to IreTheBOT (ReplTalk Bot)**
 
 If you have any suggestions for upcoming updates, feel free to share them. 
 And if you wish, open an issue for the suggestion.
