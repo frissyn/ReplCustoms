@@ -9,5 +9,7 @@
 
 5. **Access to IreTheBOT (ReplTalk Bot)**
 
+6. **User Login & Customization**
+
 If you have any suggestions for upcoming updates, feel free to share them. 
 And if you wish, open an issue for the suggestion.
