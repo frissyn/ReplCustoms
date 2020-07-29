@@ -7,6 +7,13 @@ YES | NO
 ## Description
 A few sentences describing the overall goals of the pull request's commits.
 
++ 🔥   The Fire emoji is for changes that mark a file ready for a *new release*.
++ ✏️   The Pencil emoji is for minor *changes* to a file such as *spelling errors* or *syntax changes*.
++ 🖋️   The Pen emoji is for major *additions* to a file such as a new feature.
++ ❗    The Exclamation emoji is for *changes* to information such as *new info* in the Markdown files.
++ ➕  The Plus emoji is for the *addition* of a file that didn't exist before.
++ ⭐   The Star emoji is for the *addition* of a feature that didn't exist before.
+
 ## Related PRs
 List related PRs against other branches:
 
