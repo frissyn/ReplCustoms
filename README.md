@@ -20,7 +20,7 @@ Repl Customs is a data solution I created to allow users to search the Repldatab
 Repl Customs is still in development and the only features are looking up Repl users and getting a glorified profile page, looking up posts, and looking at the Repl leaderboard for cycles, but that is just the beginning! I want this to be a fully-fledged web app that is worth your time to visit. So look forward to constant updates and changes! I’ll be working on this for next few months. This is the list of upcoming features, https://github.com/IreTheKID/Repl-Customs/blob/master/upcoming.md. 
 
 ### Want to Contribute? 📝
-If this project piques your interest and you would like to contribute to this project, anyone who wants to can read the guide (*[here](https://github.com/IreTheKID/Repl-Customs/blob/master/CONTRIBUTING.md)*) and then open a pull request with your desired changes/updates! (*Right now there’s an issue with printing a comment’s post title to the web app, so if you have a fix for that please feel free to help out!* 😀)
+If this project piques your interest and you would like to contribute to this project, anyone who wants to can read the guide (*[here](https://github.com/IreTheKID/Repl-Customs/blob/master/CONTRIBUTING.md)*) and then open a pull request with your desired changes/updates! If you contribute a great amount to Repl Customs, feel free to request joining the team! (*Right now there’s an issue with printing a comment’s post title to the web app, so if you have a fix for that please feel free to help out!* 😀)
 
 #### The Team
 + [IreTheKID](https://github.com/IreTheKID)
