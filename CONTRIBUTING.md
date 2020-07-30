@@ -8,7 +8,7 @@ Repl-Customs is a web application built on the Flask micro-web framework. The la
 
 ### Opening Issues
 
-If you want to open an issue for a bug/problem please make sure to include a code snippet of the issue or a link to  the file(s) in which the problem is located. If you already have fix or suggestion for the issue you opened please include a code snippet or link it as well as a description of your fix. Simply follow the Issue template of your choice and you should be good for approval.
+If you want to open an issue for a bug/problem please make sure to include a code snippet of the issue or a link to  the file(s) in which the problem is located. If you already have fix or suggestion for the issue you opened please include a code snippet or link it as well as a description of your fix. Simply follow the Issue template of your choice and you should be good for approval. Please include as much info as you can, wel will tell you if we need more info.
 
 ### Opening A Pull Request 
 
