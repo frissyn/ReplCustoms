@@ -38,7 +38,7 @@ If this project piques your interest and you would like to contribute to this pr
 
  
 ### Other Stuff 🙃🙃
-[Join our Discord Server!](https://discord.gg/DTf3z98)
+[Join our Discord Server!](https://discord.gg/DTf3z98) (Currently Inactive lul)
 
 ###### With all that said, please enjoy the V2 release of Repl-Customs! 😎😎 🎉🎉
 
