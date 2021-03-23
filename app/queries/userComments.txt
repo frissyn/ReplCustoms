@@ -1,0 +1,89 @@
+query ProfileComments(
+  $username: String!
+  $after: String
+  $order: String
+  $count: Int
+) {
+  user: userByUsername(username: $username) {
+    id
+    displayName
+    comments(after: $after, order: $order, count: $count) {
+      items {
+        id
+        ...ProfileCommentsComment
+        __typename
+      }
+      pageInfo {
+        nextCursor
+        __typename
+      }
+      __typename
+    }
+    __typename
+  }
+}
+fragment ProfileCommentsComment on Comment {
+  id
+  body
+  timeCreated
+  url
+  isAnswer
+  ...CommentVoteControlComment
+  user {
+    id
+    fullName
+    username
+    image
+    bio
+    karma
+    isHacker
+    timeCreated
+    roles {
+      id
+      name
+      key
+      tagline
+      __typename
+    }
+    organization {
+      id
+      name
+      __typename
+    }
+    languages {
+      id
+      key
+      displayName
+      tagline
+      icon
+      __typename
+    }
+  }
+  post {
+    id
+    title
+    url
+    user {
+      id
+      username
+      url
+      __typename
+    }
+    board {
+      id
+      name
+      url
+      slug
+      __typename
+    }
+    __typename
+  }
+  __typename
+}
+fragment CommentVoteControlComment on Comment {
+  id
+  voteCount
+  canVote
+  hasVoted
+  __typename
+}

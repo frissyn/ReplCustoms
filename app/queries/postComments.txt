@@ -1,0 +1,50 @@
+query post($postId: Int!, $order: String, $count: Int, $after: String) {
+  post(id: $postId) {
+    comments(order: $order, count: $count, after: $after) {
+      items {
+        id
+        body
+        timeCreated
+        url
+        isAnswer
+        voteCount
+        canVote
+        hasVoted
+        user {
+          id
+          fullName
+          username
+          image
+          bio
+          karma
+          isHacker
+          timeCreated
+          roles {
+            id
+            name
+            key
+            tagline
+            __typename
+          }
+          organization {
+            id
+            name
+            __typename
+          }
+          languages {
+            id
+            key
+            displayName
+            tagline
+            icon
+            __typename
+          }
+          __typename
+        }
+        post {
+          id
+        }
+      }
+    }
+  }
+}

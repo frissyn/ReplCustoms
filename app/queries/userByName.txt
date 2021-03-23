@@ -1,0 +1,42 @@
+query userByUsername($username: String!) {
+  user: userByUsername(username: $username) {
+    id
+    username
+    fullName
+    image
+    url
+    ...ProfileHeaderUser
+    __typename
+  }
+}
+fragment ProfileHeaderUser on User {
+  id
+  fullName
+  username
+  image
+  bio
+  karma
+  isHacker
+  timeCreated
+  roles {
+    id
+    name
+    key
+    tagline
+    __typename
+  }
+  organization {
+    id
+    name
+    __typename
+  }
+  languages {
+    id
+    key
+    displayName
+    tagline
+    icon
+    __typename
+  }
+  __typename
+}

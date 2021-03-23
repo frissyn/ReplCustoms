@@ -1,0 +1,41 @@
+query user($user_id: Int!) {
+  user: user(id: $user_id) {
+    id
+    fullName
+    username
+    image
+    bio
+    karma
+    isHacker
+    timeCreated
+    roles {
+      id
+      name
+      key
+      tagline
+    }
+    organization {
+      id
+      name
+      country
+      postalCode
+      state
+      city
+      timeCreated
+    }
+    subscription {
+      id
+      planId
+      quantity
+      timeCreated
+    }
+    languages {
+      id
+      key
+      displayName
+      tagline
+      icon
+      category
+    }
+  }
+}

@@ -1,0 +1,122 @@
+query PostsFeed(
+  $order: String
+  $after: String
+  $searchQuery: String
+  $languages: [String!]
+  $count: Int
+  $boardSlugs: [String!]
+  $pinAnnouncements: Boolean
+  $pinPinned: Boolean
+) {
+  posts(
+    order: $order
+    after: $after
+    searchQuery: $searchQuery
+    languages: $languages
+    count: $count
+    boardSlugs: $boardSlugs
+    pinAnnouncements: $pinAnnouncements
+    pinPinned: $pinPinned
+  ) {
+    pageInfo {
+      nextCursor
+      __typename
+    }
+    items {
+      id
+      timeCreated
+      ...PostsFeedItemPost
+      board {
+        id
+        color
+        name
+        __typename
+      }
+      __typename
+    }
+    __typename
+  }
+}
+fragment PostsFeedItemPost on Post {
+  id
+  title
+  preview(removeMarkdown: true, length: 150)
+  url
+  commentCount
+  isPinned
+  isLocked
+  isHidden
+  isAnnouncement
+  timeCreated
+  isAnswered
+  isAnswerable
+  ...PostVoteControlPost
+  ...PostLinkPost
+  user {
+    id
+    fullName
+    username
+    image
+    bio
+    karma
+    isHacker
+    timeCreated
+    roles {
+      id
+      name
+      key
+      tagline
+      __typename
+    }
+    organization {
+      id
+      name
+      __typename
+    }
+    languages {
+      id
+      key
+      displayName
+      tagline
+      icon
+      __typename
+    }
+    __typename
+  }
+  repl {
+    id
+    url
+    title
+    description
+    isPrivate
+    isAlwaysOn
+    lang {
+      id
+      icon
+      key
+      displayName
+      tagline
+      __typename
+    }
+    __typename
+  }
+  board {
+    id
+    name
+    color
+    __typename
+  }
+  __typename
+}
+fragment PostVoteControlPost on Post {
+  id
+  voteCount
+  canVote
+  hasVoted
+  __typename
+}
+fragment PostLinkPost on Post {
+  id
+  url
+  __typename
+}
