@@ -24,12 +24,10 @@ query post($postId: Int!, $order: String, $count: Int, $after: String) {
             name
             key
             tagline
-            __typename
           }
           organization {
             id
             name
-            __typename
           }
           languages {
             id
@@ -37,9 +35,7 @@ query post($postId: Int!, $order: String, $count: Int, $after: String) {
             displayName
             tagline
             icon
-            __typename
           }
-          __typename
         }
         post {
           id

@@ -47,5 +47,22 @@ module Application
         def get_user(id : Int)
             gql("user", @queries["userByID"], {"user_id" => id})["user"]
         end
+
+        def get_post(id : Int)
+            gql("post", @queries["postByID"], {"id" => id})
+        end
+
+        def get_posts(options : Hash)
+            gql(
+                "PostsFeed", @queries["postsFeed"], {
+                    "boardSlugs" => ["all"],
+                    "order" => "new",
+                    "count" => nil,
+                    "after" => nil,
+                    "searchQuery" => nil,
+                    "languages" => nil
+                }.merge(options)
+            )
+        end
     end
 end

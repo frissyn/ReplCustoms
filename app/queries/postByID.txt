@@ -11,22 +11,18 @@ query post($id: Int!) {
     answeredBy {
       id
       ...PostAnsweredCardUser
-      __typename
     }
     answer {
       id
       ...PostAnsweredCardComment
-      __typename
     }
     board {
       id
       url
       description
       slug
-      __typename
     }
     ...PostDetailPost
-    __typename
   }
 }
 fragment PostDetailPost on Post {
@@ -47,28 +43,7 @@ fragment PostDetailPost on Post {
   user {
     id
     timeCreated
-    roles {
-      id
-      name
-      key
-      tagline
-      __typename
-    }
-    organization {
-      id
-      name
-      __typename
-    }
-    languages {
-      id
-      key
-      displayName
-      tagline
-      icon
-      __typename
-    }
     ...UserPostHeaderUser
-    __typename
   }
   repl {
     id
@@ -83,24 +58,19 @@ fragment PostDetailPost on Post {
       key
       displayName
       tagline
-      __typename
     }
-    __typename
   }
   board {
     id
     name
     color
-    __typename
   }
-  __typename
 }
 fragment PostVoteControlPost on Post {
   id
   voteCount
   canVote
   hasVoted
-  __typename
 }
 fragment UserPostHeaderUser on User {
   id
@@ -110,13 +80,11 @@ fragment UserPostHeaderUser on User {
   isAdmin: hasRole(role: ADMIN)
   ...DepreciatedUserLabelUser
   ...UserLinkUser
-  __typename
 }
 fragment UserLinkUser on User {
   id
   url
   username
-  __typename
 }
 fragment DepreciatedUserLabelUser on User {
   id
@@ -124,16 +92,13 @@ fragment DepreciatedUserLabelUser on User {
   username
   url
   karma
-  __typename
 }
 fragment PostAnsweredCardUser on User {
   id
   username
   ...DepreciatedUserLabelUser
-  __typename
 }
 fragment PostAnsweredCardComment on Comment {
   id
   url
-  __typename
 }

@@ -11,15 +11,11 @@ query ProfileComments(
       items {
         id
         ...ProfileCommentsComment
-        __typename
       }
       pageInfo {
         nextCursor
-        __typename
       }
-      __typename
     }
-    __typename
   }
 }
 fragment ProfileCommentsComment on Comment {
@@ -43,12 +39,10 @@ fragment ProfileCommentsComment on Comment {
       name
       key
       tagline
-      __typename
     }
     organization {
       id
       name
-      __typename
     }
     languages {
       id
@@ -56,7 +50,6 @@ fragment ProfileCommentsComment on Comment {
       displayName
       tagline
       icon
-      __typename
     }
   }
   post {
@@ -67,23 +60,18 @@ fragment ProfileCommentsComment on Comment {
       id
       username
       url
-      __typename
     }
     board {
       id
       name
       url
       slug
-      __typename
     }
-    __typename
   }
-  __typename
 }
 fragment CommentVoteControlComment on Comment {
   id
   voteCount
   canVote
   hasVoted
-  __typename
 }

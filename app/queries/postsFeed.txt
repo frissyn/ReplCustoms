@@ -20,7 +20,6 @@ query PostsFeed(
   ) {
     pageInfo {
       nextCursor
-      __typename
     }
     items {
       id
@@ -30,11 +29,8 @@ query PostsFeed(
         id
         color
         name
-        __typename
       }
-      __typename
     }
-    __typename
   }
 }
 fragment PostsFeedItemPost on Post {
@@ -61,27 +57,6 @@ fragment PostsFeedItemPost on Post {
     karma
     isHacker
     timeCreated
-    roles {
-      id
-      name
-      key
-      tagline
-      __typename
-    }
-    organization {
-      id
-      name
-      __typename
-    }
-    languages {
-      id
-      key
-      displayName
-      tagline
-      icon
-      __typename
-    }
-    __typename
   }
   repl {
     id
@@ -96,27 +71,21 @@ fragment PostsFeedItemPost on Post {
       key
       displayName
       tagline
-      __typename
     }
-    __typename
   }
   board {
     id
     name
     color
-    __typename
   }
-  __typename
 }
 fragment PostVoteControlPost on Post {
   id
   voteCount
   canVote
   hasVoted
-  __typename
 }
 fragment PostLinkPost on Post {
   id
   url
-  __typename
 }

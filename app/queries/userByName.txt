@@ -6,7 +6,6 @@ query userByUsername($username: String!) {
     image
     url
     ...ProfileHeaderUser
-    __typename
   }
 }
 fragment ProfileHeaderUser on User {
@@ -23,12 +22,10 @@ fragment ProfileHeaderUser on User {
     name
     key
     tagline
-    __typename
   }
   organization {
     id
     name
-    __typename
   }
   languages {
     id
@@ -36,7 +33,5 @@ fragment ProfileHeaderUser on User {
     displayName
     tagline
     icon
-    __typename
   }
-  __typename
 }
